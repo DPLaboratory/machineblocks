@@ -13,7 +13,7 @@
 // Imports
 use <./lib/block.scad>;
 include <./config/config.scad>;
-include <../kbl2scad/plates_lib.scad>
+
 
 /* [View] */
 // How to view the brick in the editor
@@ -22,9 +22,9 @@ viewMode = "print"; // [print, assembled, cover]
 /* [Size] */
 
 // Box size in X-direction specified as multiple of an 1x1 brick.
-boxSizeX = 10; // [1:32] 
+boxSizeX = 6; // [1:32] 
 // Box size in Y-direction specified as multiple of an 1x1 brick.
-boxSizeY = 8; // [1:32] 
+boxSizeY = 9; // [1:32] 
 // Total box height specified as number of layers. Each layer has the height of one plate.
 boxLayers = 1; // [1:24]
 
@@ -42,9 +42,6 @@ baseKnobType = "classic"; // [classic, technic]
 baseKnobCentered = false;
 // The box rounding radius
 baseRoundingRadiusZ = 0;
-
-/* [Keycaps] */
-lego_P = 8.0;
 
 // Color of the brick
     baseColor = "#EAC645"; // [#58B99D:Turquoise, #4A9E86:Green Sea, #65C97A:Emerald, #55AB68:Nephritis, #5296D5:Peter River, #437EB4:Belize Hole, #925CB1:Amethyst, #8548A8:Wisteria, #38485C:Wet Asphalt, #303D4E:Midnight Blue, #EAC645:Sun Flower, #E7A03C:Orange, #D4813A:Carrot, #C05A23:Pumpkin, #D65745:Alizarin, #B14434:Pomegranate, #EDF0F1:Clouds, #BEC3C6:Silver, #98A4A6:Concrete, #98A4A6:Asbestos]
@@ -110,15 +107,22 @@ textFont = "RBNo3.1";
     overridePreviewQuality = 0.5;
     overrideRoundingResolution = 64;
 
+/* [Keycaps] */
+switchWidth = 14;
+switchDepth = 14;
+switchHeight = 10;
+plateCol = 1;
+plateRow = 2;
+switchGap = 19.5;
+lego_P = 8.0;
+switchMrg = 5;
+
 /* [Hidden] */
 
 bSideAdjustment = overrideConfig ? overrideBaseSideAdjustment : baseSideAdjustment;
 
-
 difference()
 {
-    translate([-lego_P*(boxSizeX/2)-0.2, 
-               -lego_P*(boxSizeY/2)-0.2, 0])
     machineblock(
         size=[boxSizeX, boxSizeY,boxLayers - (lid ? lidLayers : 0)],
         
@@ -171,12 +175,21 @@ difference()
         pillarRoundingResolution=overrideConfig ? overrideRoundingResolution : roundingResolution
     );
 
+    translate([lego_P*1-0.2,lego_P*1-0.2,0])
+    {
+     for (c =[0:plateCol])
+      for (r =[0:plateRow])
+       translate([c* switchGap, r*switchGap,-switchHeight/2])    
+        cube([switchWidth,switchDepth,switchHeight], false);      
+    }
     
-    translate([0, -5,-5])
-     linear_extrude(height = 20)
-        my_key_holes(true);
+//    translate([lego_P*3-0.2,lego_P*2.5-0.2,0])
+//     translate([0, 0, -3])
+//      cube([lego_P*(boxSizeX-2)-0.2,
+//       lego_P*(boxSizeY-4)-0.2, 5], false);
 }
- 
+
+
 
 if(lid){
     translate(viewMode != "print" ? [0, 0, ((boxLayers - lidLayers) + (viewMode == "cover" ? 2*lidLayers : 0)) * 3.2] : [boxSizeX > boxSizeY ? 0 : (boxSizeX + 0.5) * 8.0, boxSizeX > boxSizeY ? -(boxSizeY + 0.5) * 8.0 : 0, 0])
