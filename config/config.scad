@@ -26,5 +26,4 @@ include <config-default.scad>;
 // Inactive configurations
 //include <config-scale-x2.scad>;
 //include <config-scale-x3.scad>;
-
-studDiameterAdjustment = 0.3; // mm
+//studDiameterAdjustment = 0.3; // mm

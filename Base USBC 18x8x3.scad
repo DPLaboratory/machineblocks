@@ -23,9 +23,9 @@ stl_file = "./stl/Rp2040.stl";   // Nome del file STL
 /* [Size] */
 
 // Box size in X-direction specified as multiple of an 1x1 brick.
-boxSizeX = 10; // [1:32] 
+boxSizeX = 8; // [1:32] 
 // Box size in Y-direction specified as multiple of an 1x1 brick.
-boxSizeY = 8; // [1:32] 
+boxSizeY = 10; // [1:32] 
 // Total box height specified as number of layers. Each layer has the height of one plate.
 boxLayers = 3; // [1:24]
 
@@ -169,14 +169,26 @@ union()
         );
 
         
-        translate([0, -5, 0])
+        translate([0, -6, 0])
          translate([0, ((boxSizeY - 1) * 8.0) /2, 3])
-            cube([18,18,9]);
+            cube([8,20,9]);
+            
+//        translate([0, -6, 0])
+//         translate([0, ((boxSizeY - 1) * 8.0) /2, 3])
+//            cube([18,20,9]);
 
     }
 
+    translate([0, -6, 0])
+         translate([0, ((boxSizeY - 1) * 8.0) /2, 3])
+            cube([2,1,6.6]);
+    
+    translate([0, 19-6, 0])
+         translate([0, ((boxSizeY - 1) * 8.0) /2, 3])
+            cube([2,1,6.6]);
+            
     translate([0, -9, 0])
-    translate([0, ((boxSizeY) * 8.0) /2, 3])
+      translate([0, ((boxSizeY) * 8.0) /2, 3])
         translate([100, 99, 0])
             import(stl_file, convexity=3);
             
