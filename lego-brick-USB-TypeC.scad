@@ -107,7 +107,7 @@ holeZCenteredY = true;
 /* [Pit] */
 
 // Whether brick should have a pit
-pit = true;
+pit = false;
 // Whether knobs should be drawn inside pit
 pitKnobs = flase;
 // Pit wall thickness as multiple of one brick side length
@@ -149,87 +149,94 @@ grilleY = false;
 
 
 bSideAdjustment = overrideConfig ? overrideBaseSideAdjustment : baseSideAdjustment;
-difference()
+union()
 {
-    // Generate the block
-    machineblock(
-        size = [brickSizeX, brickSizeY,baseLayers],
-        baseCutoutType = baseCutoutType,
-        baseRoundingRadius=[baseRoundingRadiusX, baseRoundingRadiusY, baseRoundingRadiusZ],
-        baseCutoutRoundingRadius = baseCutoutRoundingRadius,
-        baseReliefCut = baseReliefCut,
-        baseReliefCutHeight = baseReliefCutHeight,
-        baseReliefCutThickness = baseReliefCutThickness,
-        baseColor = baseColor,
-        surfacePattern = surfacePattern,
-        surfacePatternScale = surfacePatternScale,
+    difference()
+    {
+        // Generate the block
+        machineblock(
+            size = [brickSizeX, brickSizeY,baseLayers],
+            baseCutoutType = baseCutoutType,
+            baseRoundingRadius=[baseRoundingRadiusX, baseRoundingRadiusY, baseRoundingRadiusZ],
+            baseCutoutRoundingRadius = baseCutoutRoundingRadius,
+            baseReliefCut = baseReliefCut,
+            baseReliefCutHeight = baseReliefCutHeight,
+            baseReliefCutThickness = baseReliefCutThickness,
+            baseColor = baseColor,
+            surfacePattern = surfacePattern,
+            surfacePatternScale = surfacePatternScale,
 
-        bevel = [bevel0, bevel1, bevel2, bevel3],
+            bevel = [bevel0, bevel1, bevel2, bevel3],
 
-        studs = knobs,
-        studCenteredX = knobCenteredX,
-        studCenteredY = knobCenteredY,
-        studType = knobType,
-        studPadding = studPadding,
-        
-        studIcon = studIcon,
-        
-        pillars = pillars,
-        
-        holeX = holesX,
-        holeXType = holeXType,
-        holeXCentered = holeXCentered,
-        holeXGridOffsetZ = holeXGridOffsetZ,
-        holeY = holesY,
-        holeYType = holeYType,
-        holeYCentered = holeYCentered,
-        holeYGridOffsetZ = holeYGridOffsetZ,
-        holeZ = holesZ,
-        holeZType = holeZType,
-        holeZCenteredX = holeZCenteredX,
-        holeZCenteredY = holeZCenteredY,
-        
-        pit = pit,
-        pitKnobs = pitKnobs,
-        pitWallThickness = pitWallThickness,
-        
-        slope = slope, 
+            studs = knobs,
+            studCenteredX = knobCenteredX,
+            studCenteredY = knobCenteredY,
+            studType = knobType,
+            studPadding = studPadding,
+            
+            studIcon = studIcon,
+            
+            pillars = pillars,
+            
+            holeX = holesX,
+            holeXType = holeXType,
+            holeXCentered = holeXCentered,
+            holeXGridOffsetZ = holeXGridOffsetZ,
+            holeY = holesY,
+            holeYType = holeYType,
+            holeYCentered = holeYCentered,
+            holeYGridOffsetZ = holeYGridOffsetZ,
+            holeZ = holesZ,
+            holeZType = holeZType,
+            holeZCenteredX = holeZCenteredX,
+            holeZCenteredY = holeZCenteredY,
+            
+            pit = pit,
+            pitKnobs = pitKnobs,
+            pitWallThickness = pitWallThickness,
+            
+            slope = slope, 
 
-        grilleX = grilleX,
-        grilleY = grilleY,
+            grilleX = grilleX,
+            grilleY = grilleY,
 
-        
-        
+            
+            
 
-        baseSideAdjustment = bSideAdjustment,
-        
-        unitMbu=unitMbu,
-        unitGrid=unitGrid,
-        scale=overrideConfig ? overrideScale : scale,
-        baseHeightAdjustment=overrideConfig ? overrideBaseHeightAdjustment : baseHeightAdjustment,
-        baseWallThicknessAdjustment=overrideConfig ? overrideBaseWallThicknessAdjustment : baseWallThicknessAdjustment,
-        baseClampThickness=overrideConfig ? overrideBaseClampThickness : baseClampThickness,
-        tubeXDiameterAdjustment=overrideConfig ? overrideTubeXDiameterAdjustment : tubeXDiameterAdjustment,
-        tubeYDiameterAdjustment=overrideConfig ? overrideTubeYDiameterAdjustment : tubeYDiameterAdjustment,
-        tubeZDiameterAdjustment=overrideConfig ? overrideTubeZDiameterAdjustment : tubeZDiameterAdjustment,
-        holeXDiameterAdjustment=overrideConfig ? overrideHoleXDiameterAdjustment : holeXDiameterAdjustment,
-        holeYDiameterAdjustment=overrideConfig ? overrideHoleYDiameterAdjustment : holeYDiameterAdjustment,
-        holeZDiameterAdjustment=overrideConfig ? overrideHoleZDiameterAdjustment : holeZDiameterAdjustment,
-        pinDiameterAdjustment=overrideConfig ? overridePinDiameterAdjustment : pinDiameterAdjustment,
-        studDiameterAdjustment=overrideConfig ? overrideStudDiameterAdjustment : studDiameterAdjustment,
-        studCutoutAdjustment=overrideConfig ? overrideStudCutoutAdjustment : studCutoutAdjustment,
-        previewRender=overrideConfig ? overridePreviewRender : previewRender,
-        previewQuality=overrideConfig ? overridePreviewQuality : previewQuality,
-        baseRoundingResolution=overrideConfig ? overrideRoundingResolution : roundingResolution,
-        holeRoundingResolution=overrideConfig ? overrideRoundingResolution : roundingResolution,
-        studRoundingResolution=overrideConfig ? overrideRoundingResolution : roundingResolution,
-        pillarRoundingResolution=overrideConfig ? overrideRoundingResolution : roundingResolution
-    );
+            baseSideAdjustment = bSideAdjustment,
+            
+            unitMbu=unitMbu,
+            unitGrid=unitGrid,
+            scale=overrideConfig ? overrideScale : scale,
+            baseHeightAdjustment=overrideConfig ? overrideBaseHeightAdjustment : baseHeightAdjustment,
+            baseWallThicknessAdjustment=overrideConfig ? overrideBaseWallThicknessAdjustment : baseWallThicknessAdjustment,
+            baseClampThickness=overrideConfig ? overrideBaseClampThickness : baseClampThickness,
+            tubeXDiameterAdjustment=overrideConfig ? overrideTubeXDiameterAdjustment : tubeXDiameterAdjustment,
+            tubeYDiameterAdjustment=overrideConfig ? overrideTubeYDiameterAdjustment : tubeYDiameterAdjustment,
+            tubeZDiameterAdjustment=overrideConfig ? overrideTubeZDiameterAdjustment : tubeZDiameterAdjustment,
+            holeXDiameterAdjustment=overrideConfig ? overrideHoleXDiameterAdjustment : holeXDiameterAdjustment,
+            holeYDiameterAdjustment=overrideConfig ? overrideHoleYDiameterAdjustment : holeYDiameterAdjustment,
+            holeZDiameterAdjustment=overrideConfig ? overrideHoleZDiameterAdjustment : holeZDiameterAdjustment,
+            pinDiameterAdjustment=overrideConfig ? overridePinDiameterAdjustment : pinDiameterAdjustment,
+            studDiameterAdjustment=overrideConfig ? overrideStudDiameterAdjustment : studDiameterAdjustment,
+            studCutoutAdjustment=overrideConfig ? overrideStudCutoutAdjustment : studCutoutAdjustment,
+            previewRender=overrideConfig ? overridePreviewRender : previewRender,
+            previewQuality=overrideConfig ? overridePreviewQuality : previewQuality,
+            baseRoundingResolution=overrideConfig ? overrideRoundingResolution : roundingResolution,
+            holeRoundingResolution=overrideConfig ? overrideRoundingResolution : roundingResolution,
+            studRoundingResolution=overrideConfig ? overrideRoundingResolution : roundingResolution,
+            pillarRoundingResolution=overrideConfig ? overrideRoundingResolution : roundingResolution
+        );
 
-    translate([((brickSizeX+ 0.5)*8)/2 - 2, ((brickSizeY+ 0.5)*8)/2 + 4, ((baseLayers+0.5) *2) /2 + 0.5])
-      rotate(a=90, v=[1,0,0])
-        usb_c_cutout(depth = 8*(brickSizeY+ 0.5));
+        translate([((brickSizeX+ 0.5)*8)/2 - 2, ((brickSizeY+ 0.5)*8)/2 + 4, ((baseLayers+0.5) *2) /2 + 0.5])
+          rotate(a=90, v=[1,0,0])
+            usb_c_cutout(depth = 8*(brickSizeY+ 0.5));
 
-    translate([((brickSizeX+ 0.5)*8)/2 - 2, 1, ((baseLayers+0.5) *2) /2 + 0.5])
-        cube([(brickSizeX+ 0.5)*3.5, ((brickSizeY+ 0.5)*8), 4*(brickSizeY+ 1)], center=true);
+        translate([((brickSizeX+ 0.5)*8)/2 - 2, 1, ((baseLayers+0.5) *2) /2 + 0.5])
+            cube([(brickSizeX+ 0.5)*3.5, ((brickSizeY+ 0.5)*8), 4*(brickSizeY+ 1)], center=true);
+    }
+    
 }
+    translate([((brickSizeX+ 0.5)*8)/2 - 2, 4, 2.6])
+            cube([(brickSizeX+ 0.5)*3.5, ((brickSizeY+ 0.5)* 4), 1], center=true);
+
