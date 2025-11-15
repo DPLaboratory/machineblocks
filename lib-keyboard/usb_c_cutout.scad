@@ -38,6 +38,26 @@ module usb_c_cutout(port_w = 9.5, port_h = 4, clearance = 0.25, fillet = 2, dept
     }
 }
 
+module usb_c_hole(width = 20, depth = 10, height=8-0.2, fillet = 2, perimeter = 2) {
+    
+    difference() 
+    {
+        linear_extrude(height=height, center=false)
+            rounded_rect_2d(width, depth, fillet);
+
+        translate([0,0,perimeter]) 
+         linear_extrude(height=height-perimeter, center=false)
+          rounded_rect_2d(width-perimeter, depth-perimeter, fillet);
+
+        usb_c_cutout(depth = depth+1);
+    }   
+}
+
+module usb_c_hole_cut(width = 20, depth = 10, height=8, fillet = 2, perimeter = 2) {
+    linear_extrude(height=height, center=false)
+        rounded_rect_2d(width, depth, fillet);
+}
+
 // Esempio rapido: scatola con foro USB-C
 module example_box(box_w = 40, box_h = 24, box_d = 12, port_pos = [20, 12, 0]) {
     difference() {
