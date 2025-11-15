@@ -20,7 +20,7 @@ use <./lib-keyboard/usb_c_cutout.scad>;
 // Brick size in X-direction specified as multiple of an 1x1 brick.
 brickSizeX = 4; // [1:32]  
 // Brick size in Y-direction specified as multiple of an 1x1 brick.
-brickSizeY = 1; // [1:32]  
+brickSizeY = 2; // [1:32]  
 // Height of brick specified as number of layers. Each layer has the height of one plate.
 baseLayers = 6; // [1:24]
 
@@ -40,12 +40,12 @@ union()
     {
     brick();
 
-    translate([brick_p * 4 /2, brick_p, brick_h * lebo_blobk_h_usb_c])
+    translate([brick_p * brickSizeX /2, brick_p*brickSizeY, unitMbu * 2 * lebo_blobk_h_usb_c])
         rotate(a=90, v=[1,0,0])
-         usb_c_hole_cut();
+         usb_c_hole_cut(height=brick_p*brickSizeY);
     }
 
-    translate([brick_p * 4 /2, brick_p-0.1, brick_h *lebo_blobk_h_usb_c])
+    translate([brick_p * brickSizeX /2, brick_p*brickSizeY, unitMbu * 2 * lebo_blobk_h_usb_c])
      rotate(a=90, v=[1,0,0])
-      usb_c_hole();
+      usb_c_hole(height=brick_p*brickSizeY);
 }
