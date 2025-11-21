@@ -47,19 +47,11 @@ module m_key(w, h,c) {
 }
 key_spacing = 19;
 module my_key_holes(use_notches=true) {
-switch_hole([-19.0,14.25],use_notches);
-switch_hole([0.0,14.25],use_notches);
-switch_hole([19.0,14.25],use_notches);
-switch_hole([-19.0,-4.75],use_notches);
-switch_hole([0.0,-4.75],use_notches);
-switch_hole([19.0,-4.75],use_notches);
+switch_hole([-9.5,4.75],use_notches);
+switch_hole([9.5,4.75],use_notches);
 }
 module my_key_previews(use_notches=true) {
-translate([-19.0, 14.25]) m_key(1*18.415+(1-1)*0.6, 1*18.415+(1-1)*0.6,Grey);
-translate([0.0, 14.25]) m_key(1*18.415+(1-1)*0.6, 1*18.415+(1-1)*0.6,Grey);
-translate([19.0, 14.25]) m_key(1*18.415+(1-1)*0.6, 1*18.415+(1-1)*0.6,Grey);
-translate([-19.0, -4.75]) m_key(1*18.415+(1-1)*0.6, 1*18.415+(1-1)*0.6,Grey);
-translate([0.0, -4.75]) m_key(1*18.415+(1-1)*0.6, 1*18.415+(1-1)*0.6,Grey);
-translate([19.0, -4.75]) m_key(1*18.415+(1-1)*0.6, 1*18.415+(1-1)*0.6,Grey);
+translate([-9.5, 4.75]) m_key(1*18.415+(1-1)*0.6, 1*18.415+(1-1)*0.6,Grey);
+translate([9.5, 4.75]) m_key(1*18.415+(1-1)*0.6, 1*18.415+(1-1)*0.6,Grey);
 }
-function bbox() = [-1.5, -1.25, 3.0, 2.5];
+function bbox() = [-1.0, -0.75, 2.0, 1.5];

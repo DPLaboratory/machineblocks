@@ -8,6 +8,17 @@ In this project a added project https://github.com/DPLaboratory/kbl2scad for gen
 
 wip for lego keycaps & Hot swap plate
 
+## Using
+
+1. Go to keyboard-layout-editor.com, design your keyboard, and copy and paste the raw data into ./kbl2scad/layout a text file.
+
+2. Run from the command line.
+go to ./kbl2scad
+```
+python kbl2scad.py ./layout/my_layout_file -o ./plate/keys.scad
+```
+
+
 ## Get Started
 You can [use the toolkit online](https://machineblocks.com/docs/get-started) or [run the SCAD library](https://machineblocks.com/docs/local-installation) on your local computer with [OpenSCAD](https://openscad.org).
 

@@ -5,10 +5,9 @@
  */
  
 //use <keys.scad>;
-//use <test.scad>;
-//use <pad4x3.scad>;
-use <numpad.scad>;
-
+//use <./plate/Pad_1x2.scad>;
+//use <./plate/pad_4x3.scad>;
+use <./plate/numpad.scad>;
 
 /* Set output quality */
 $fn = 50;
