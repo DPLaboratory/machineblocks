@@ -4,10 +4,10 @@
  * inside_corners to get a different shape.
  */
  
-//use <keys.scad>;
+use <./plate/keys.scad>;
 //use <./plate/Pad_1x2.scad>;
 //use <./plate/pad_4x3.scad>;
-use <./plate/numpad.scad>;
+//use <./plate/numpad.scad>;
 
 /* Set output quality */
 $fn = 50;
@@ -139,9 +139,9 @@ module preview(explode=1.0) {
  * Comment these two lines in and out as you design. Only have cuts uncommented to make the DXF.
  */
 // cuts();
-//preview(30.0);
-//plate();
+// preview(30.0);
+// plate();
 
-//boundary();
-//my_key_holes(true);
+// boundary();
+// my_key_holes(true);
 
