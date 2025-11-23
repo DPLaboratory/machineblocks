@@ -1,3 +1,5 @@
+include <../HSS.scad>;
+
 /*
  * Routine for placing switch holes for various types of switches
  */
@@ -19,6 +21,12 @@ module switch_hole(center_pt, notched=false, type=1) {
        }
    }
 };
+
+module hss_hole(center_pt)
+{
+  translate(center_pt) 
+    hss_wired_box();
+}
 
 /*
  * Taken from Planck case.

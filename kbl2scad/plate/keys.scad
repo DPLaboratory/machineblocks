@@ -1,3 +1,5 @@
+include <../HSS.scad>;
+
 /*
  * Routine for placing switch holes for various types of switches
  */
@@ -19,6 +21,12 @@ module switch_hole(center_pt, notched=false, type=1) {
        }
    }
 };
+
+module hss_hole(center_pt)
+{
+  translate(center_pt) 
+    hss_wired_box();
+}
 
 /*
  * Taken from Planck case.
@@ -49,6 +57,10 @@ key_spacing = 19;
 module my_key_holes(use_notches=true) {
 switch_hole([-9.5,4.75],use_notches);
 switch_hole([9.5,4.75],use_notches);
+}
+module my_key_hss() {
+hss_hole([-9.5,4.75],use_notches);
+hss_hole([9.5,4.75],use_notches);
 }
 module my_key_previews(use_notches=true) {
 translate([-9.5, 4.75]) m_key(1*18.415+(1-1)*0.6, 1*18.415+(1-1)*0.6,Grey);

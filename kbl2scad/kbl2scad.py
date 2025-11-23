@@ -99,6 +99,16 @@ for x,y,w,h,c in key_list:
 out_file.write("}\n");
 
 #
+# Write the switch hole module hss
+#
+out_file.write("module my_key_hss() {\n");
+for x,y,w,h,c in key_list:
+    out_file.write("hss_hole([{0},{1}],use_notches);\n".format(
+        (x+(w-1.0)/2.0)*key_width,
+        (y-(h-1.0)/2.0)*key_height ) )
+out_file.write("}\n");
+
+#
 # Write the key preview to the module
 #
 out_file.write("module my_key_previews(use_notches=true) {\n");

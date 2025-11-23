@@ -4,13 +4,13 @@
  * inside_corners to get a different shape.
  */
  
-use <./plate/keys.scad>;
+include <./plate/keys.scad>;
 //use <./plate/Pad_1x2.scad>;
 //use <./plate/pad_4x3.scad>;
 //use <./plate/numpad.scad>;
 
 /* Set output quality */
-$fn = 50;
+$fn = 64;
 
 /* Some values. Don't change key_spacing. Units in mm */
 key_spacing = 19.0;

@@ -22,7 +22,11 @@ difference()
         brick_plate();
     
     translate([0, -5,-5])
+    {
       linear_extrude(height = 20)
          my_key_holes(true);
+    }
 }
- 
+
+translate([0, -5,-5])
+ my_key_hss() ;

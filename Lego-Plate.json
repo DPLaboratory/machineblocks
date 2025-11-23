@@ -5,6 +5,11 @@
             "boxLayers": "1",
             "boxSizeX": "14",
             "boxSizeY": "14"
+        },
+        "New set 1": {
+            "boxLayers": "1",
+            "boxSizeX": "6",
+            "boxSizeY": "5"
         }
     }
 }
