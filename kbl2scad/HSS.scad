@@ -30,6 +30,7 @@ depth = 2;
 //hss_wired();
 // diode_mock();
 module hss_wired_box() {
+
 union() {
    translate([0, 0, (base.z + 5)/2])
     difference() 
@@ -39,6 +40,7 @@ union() {
     }
    
     translate([0, 0, base.z/2])
+    rotate([0, 180, 0])
     difference(){
         make_body(false);
         pin_wire_slots();
