@@ -15,18 +15,26 @@ boxSizeY = 14; // [1:32]
 // Total box height specified as number of layers. Each layer has the height of one plate.
 boxLayers = 1; // [1:24]
 
-difference()
+hss = false; // Add holes for hss screws
+
+union()
 {
-    translate([-lego_P*(boxSizeX/2)-0.2, 
-               -lego_P*(boxSizeY/2)-0.2, 0])
-        brick_plate();
-    
-    translate([0, -5,-5])
+    difference()
     {
-      linear_extrude(height = 20)
-         my_key_holes(true);
+        translate([-lego_P*(boxSizeX/2)-0.2, 
+                -lego_P*(boxSizeY/2)-0.2, 0])
+            brick_plate();
+        
+        translate([0, -5,-5])
+        {
+        linear_extrude(height = 20)
+            my_key_holes(true);
+        }
+    }
+
+    if (hss)
+    {
+        translate([0, -5, 0])
+        my_key_hss();
     }
 }
-
-// translate([0, -5,-5])
-//  my_key_hss() ;

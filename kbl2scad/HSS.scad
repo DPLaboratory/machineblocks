@@ -17,7 +17,7 @@ pin1 = [3*grid, 2*grid, 1.7];
 stem = [0, 0, 3.80];
 peg1 = [-4*grid, 0, 2.1];
 peg2 = [4*grid, 0, 2.1];
-base = [11*grid, 11*grid, 3.0]; //H originale 3.5
+base = [11*grid, 11*grid, 1.8]; //H originale 3.5
 
 diode_dia = diode_gauge_mm * 0.98;
 wire_dia = wire_gauge_mm * 1.1;
@@ -32,11 +32,12 @@ depth = 2;
 module hss_wired_box() {
 
 union() {
-   translate([0, 0, (base.z + 5)/2])
+   lego_h = 1.0;
+   translate([0, 0, (base.z + lego_h) /2])
     difference() 
     {
-        cube([base.x + depth, base.y+ depth, base.z +5], center = true);
-        cube([base.x, base.y, base.z + 5], center = true);
+        cube([base.x + depth, base.y+ depth, base.z + lego_h], center = true);
+        cube([base.x, base.y, base.z + lego_h], center = true);
     }
    
     translate([0, 0, base.z/2])

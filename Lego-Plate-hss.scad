@@ -35,6 +35,6 @@ union()
       cube([lego_P*(brickSizeX-2), lego_P*(brickSizeY- 2), 1.7], center=true);
   }
 
-  translate([0, -5, (lego_h * baseLayers) - 8])
+  //translate([0, -5, (lego_h * baseLayers) - 8])
     my_key_hss() ;
 }

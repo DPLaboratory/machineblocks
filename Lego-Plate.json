@@ -10,6 +10,12 @@
             "boxLayers": "1",
             "boxSizeX": "6",
             "boxSizeY": "5"
+        },
+        "Nuovo insieme 2": {
+            "boxLayers": "1",
+            "boxSizeX": "8",
+            "boxSizeY": "8",
+            "hss": "false"
         }
     }
 }
