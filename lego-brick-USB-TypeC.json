@@ -1,0 +1,11 @@
+{
+    "fileFormatVersion": "1",
+    "parameterSets": {
+        "Nuovo insieme 1": {
+            "baseLayers": "6",
+            "brickSizeX": "4",
+            "brickSizeY": "1",
+            "lebo_blobk_h_usb_c": "3"
+        }
+    }
+}
