@@ -6,6 +6,24 @@
             "brickSizeX": "4",
             "brickSizeY": "1",
             "lebo_blobk_h_usb_c": "3"
+        },
+        "Nuovo insieme 2": {
+            "baseLayers": "3",
+            "brickSizeX": "4",
+            "brickSizeY": "1",
+            "lebo_blobk_h_usb_c": "3"
+        },
+        "Nuovo insieme 3": {
+            "baseLayers": "3",
+            "brickSizeX": "9",
+            "brickSizeY": "3",
+            "lebo_blobk_h_usb_c": "3"
+        },
+        "Nuovo insieme 4": {
+            "baseLayers": "6",
+            "brickSizeX": "4",
+            "brickSizeY": "2",
+            "lebo_blobk_h_usb_c": "3"
         }
     }
 }

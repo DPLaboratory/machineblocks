@@ -40,12 +40,12 @@ union()
     {
     brick();
 
-    translate([brick_p * brickSizeX /2, brick_p*brickSizeY, unitMbu * 2 * lebo_blobk_h_usb_c])
+    translate([brick_p * brickSizeX /2, brick_p*brickSizeY, (unitMbu * 2 * lebo_blobk_h_usb_c)])
         rotate(a=90, v=[1,0,0])
          usb_c_hole_cut(height=brick_p*brickSizeY);
     }
 
-    translate([brick_p * brickSizeX /2, brick_p*brickSizeY, unitMbu * 2 * lebo_blobk_h_usb_c])
+    translate([brick_p * brickSizeX /2, brick_p*brickSizeY, (unitMbu * 2 * lebo_blobk_h_usb_c)])
      rotate(a=90, v=[1,0,0])
       usb_c_hole(height=brick_p*brickSizeY);
 }
