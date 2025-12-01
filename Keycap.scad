@@ -18,7 +18,7 @@ pillars = false;
 $gen_part = "disable"; // [disable, keycap, stem]
 
 // what preset profile do you wish to use? disable if you are going to set paramters below
-key_profile = "lego"; // [dcs, oem, dsa, lsa, sa, g20, lego, dsa_flat, c64, disable]
+key_profile = "lego"; // [dcs, oem, dsa, lsa, sa, g20, lego, dsa_flat, c64, stem, disable]
 // what key profile row is this keycap on? 0 for disable
 row = 0; // [5,1,2,3,4,0]
 
@@ -36,6 +36,12 @@ $stem_type = "rounded_cherry";  // [cherry, alps, rounded_cherry, box_cherry, fi
 // The stem is the hardest part to print, so this variable controls how much 'slop' there is in the stem
 $stem_slop = 0.3; // Not working in thingiverse customizer atm [0:0.01:1]
 
+
+// Stem key_profile selected On
+$stem_support = 2;
+$stem_support_xy = 14;
+$stem_height = 10;
+    
 // Font size used for text
 $font_size = 6;
 
@@ -406,6 +412,15 @@ module lsa_row(n=3) {
   children();
 }
 
+module stem_row(n=3) {
+    union() {
+        translate([0,0, $stem_height - ($stem_support/2) ])
+           cube([$stem_support_xy, $stem_support_xy, $stem_support ], true);
+           
+        stem($stem_type, $stem_height, $stem_slop);
+    }
+}
+
 module lego_row(n=3) {
     //  $key_shape_type = "sculpted_square";
     $bottom_key_width = 18.4;
@@ -543,7 +558,9 @@ module key_profile(key_profile_type, row) {
     c64_row(row) children();
   } else if (key_profile_type == "dsa_flat") {
     dsa_flat_row(row) children();
-  } 
+  } else if (key_profile_type == "stem") {
+    stem_row(row) children();
+  }
   else if (key_profile_type == "disable") {
     children();
   } else {
