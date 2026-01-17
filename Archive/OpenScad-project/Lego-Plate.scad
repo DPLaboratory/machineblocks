@@ -9,9 +9,9 @@ include <./kbl2scad/plates_lib.scad>
 /* [Size] */
 
 // Box size in X-direction specified as multiple of an 1x1 brick.
-boxSizeX = 12; // [1:32] 
+boxSizeX = 6; // [1:32] 
 // Box size in Y-direction specified as multiple of an 1x1 brick.
-boxSizeY = 14; // [1:32] 
+boxSizeY = 6; // [1:32] 
 // Total box height specified as number of layers. Each layer has the height of one plate.
 boxLayers = 1; // [1:24]
 
